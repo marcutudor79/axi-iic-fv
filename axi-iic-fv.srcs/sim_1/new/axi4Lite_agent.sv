@@ -20,6 +20,8 @@
 
 `include "uvm_macros.svh"
 `include "axi4Lite_driver.sv"
+`include "axi4Lite_monitor.sv"
+
 import uvm_pkg::*;
 
 class axi4Lite_agent extends uvm_agent;

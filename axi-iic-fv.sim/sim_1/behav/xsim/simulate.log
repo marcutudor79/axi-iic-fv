@@ -32,7 +32,7 @@ UVM_INFO D:/_code/axi-iic-fv/axi-iic-fv.srcs/sim_1/new/axi4Lite_driver.sv(43) @ 
 	 * addr=18
 	 * writeEnable=1
 UVM_INFO D:/_code/axi-iic-fv/axi-iic-fv.srcs/sim_1/new/axi4Lite_driver.sv(64) @ 105000: uvm_test_top.env.agent.driver [axi4Lite_driver] Write access successfull
-UVM_INFO D:/_code/axi-iic-fv/axi-iic-fv.srcs/sim_1/new/axi4Lite_monitor.sv(51) @ 105000: uvm_test_top.env.agent.monitor [axi4Lite_monitor] Detected a new write response: 
+UVM_INFO D:/_code/axi-iic-fv/axi-iic-fv.srcs/sim_1/new/axi4Lite_monitor.sv(60) @ 105000: uvm_test_top.env.agent.monitor [axi4Lite_monitor] Detected a new write response: 
 	 * readData=0
 	 * writeData=f56b8370
 	 * addr=18
@@ -42,7 +42,7 @@ UVM_INFO D:/_code/axi-iic-fv/axi-iic-fv.srcs/sim_1/new/axi4Lite_driver.sv(43) @ 
 	 * writeData=dc702053
 	 * addr=2
 	 * writeEnable=1
-UVM_INFO D:/_code/axi-iic-fv/axi-iic-fv.srcs/sim_1/new/axi4Lite_monitor.sv(51) @ 165000: uvm_test_top.env.agent.monitor [axi4Lite_monitor] Detected a new write response: 
+UVM_INFO D:/_code/axi-iic-fv/axi-iic-fv.srcs/sim_1/new/axi4Lite_monitor.sv(60) @ 165000: uvm_test_top.env.agent.monitor [axi4Lite_monitor] Detected a new write response: 
 	 * readData=0
 	 * writeData=dc702053
 	 * addr=2
@@ -53,7 +53,7 @@ UVM_INFO D:/_code/axi-iic-fv/axi-iic-fv.srcs/sim_1/new/axi4Lite_driver.sv(43) @ 
 	 * writeData=ea7959f6
 	 * addr=b
 	 * writeEnable=1
-UVM_INFO D:/_code/axi-iic-fv/axi-iic-fv.srcs/sim_1/new/axi4Lite_monitor.sv(51) @ 225000: uvm_test_top.env.agent.monitor [axi4Lite_monitor] Detected a new write response: 
+UVM_INFO D:/_code/axi-iic-fv/axi-iic-fv.srcs/sim_1/new/axi4Lite_monitor.sv(60) @ 225000: uvm_test_top.env.agent.monitor [axi4Lite_monitor] Detected a new write response: 
 	 * readData=0
 	 * writeData=ea7959f6
 	 * addr=b
@@ -64,18 +64,19 @@ UVM_INFO D:/_code/axi-iic-fv/axi-iic-fv.srcs/sim_1/new/axi4Lite_driver.sv(43) @ 
 	 * writeData=1f8730dd
 	 * addr=2
 	 * writeEnable=0
-UVM_INFO D:/_code/axi-iic-fv/axi-iic-fv.srcs/sim_1/new/axi4Lite_monitor.sv(68) @ 285000: uvm_test_top.env.agent.monitor [axi4Lite_monitor] Detected a new read response: 
+UVM_INFO D:/_code/axi-iic-fv/axi-iic-fv.srcs/sim_1/new/axi4Lite_monitor.sv(77) @ 285000: uvm_test_top.env.agent.monitor [axi4Lite_monitor] Detected a new read response: 
 	 * readData=0
 	 * writeData=0
 	 * addr=2
 	 * writeEnable=0
+UVM_ERROR D:/_code/axi-iic-fv/axi-iic-fv.srcs/sim_1/new/scoreboard.sv(48) @ 285000: uvm_test_top.env.sb [DUT_ERROR] Read mismatch on address 2, expected dc702053, received 0
 UVM_INFO D:/_code/axi-iic-fv/axi-iic-fv.srcs/sim_1/new/axi4Lite_driver.sv(91) @ 285000: uvm_test_top.env.agent.driver [axi4Lite_driver] Successfully read data 0
 UVM_INFO D:/_code/axi-iic-fv/axi-iic-fv.srcs/sim_1/new/axi4Lite_driver.sv(43) @ 295000: uvm_test_top.env.agent.driver [axi4Lite_driver] Received new item: 
 	 * readData=0
 	 * writeData=fb99a440
 	 * addr=e
 	 * writeEnable=1
-UVM_INFO D:/_code/axi-iic-fv/axi-iic-fv.srcs/sim_1/new/axi4Lite_monitor.sv(51) @ 345000: uvm_test_top.env.agent.monitor [axi4Lite_monitor] Detected a new write response: 
+UVM_INFO D:/_code/axi-iic-fv/axi-iic-fv.srcs/sim_1/new/axi4Lite_monitor.sv(60) @ 345000: uvm_test_top.env.agent.monitor [axi4Lite_monitor] Detected a new write response: 
 	 * readData=0
 	 * writeData=fb99a440
 	 * addr=e
@@ -89,9 +90,10 @@ UVM_INFO D:/Xilinx/Vivado/2024.1/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv
 ** Report counts by severity
 UVM_INFO :   21
 UVM_WARNING :    0
-UVM_ERROR :    0
+UVM_ERROR :    1
 UVM_FATAL :    0
 ** Report counts by id
+[DUT_ERROR]     1
 [RNTST]     1
 [TEST_DONE]     1
 [UVM/COMP/NAMECHECK]     1
