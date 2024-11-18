@@ -21,4 +21,4 @@ Just open the axi-iic-fv.xpr file in the your Vivado IDE and run the simulation.
 
 ✅ Monitor and Driver integration [as here](https://gitlab.upb.ro/Teaching/aces/functional-verification/-/tree/master/lab3?ref_type=heads)
 
-❌ Scoreboard integration [as here](https://gitlab.upb.ro/Teaching/aces/functional-verification/-/tree/master/lab4?ref_type=heads)
+✅ Scoreboard integration [as here](https://gitlab.upb.ro/Teaching/aces/functional-verification/-/tree/master/lab4?ref_type=heads)
