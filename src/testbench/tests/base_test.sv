@@ -50,10 +50,16 @@ class base_test extends uvm_test;
 
         // GET the sequence
         baseSeq = axi4Lite_baseSequence::type_id::create("baseSeq");
-        baseSeq.numberOfAccesses=5;
 
         phase.raise_objection(this);
 
+        // reset the module
+        axi4Lite.s_axi_aresetn = 0;
+        repeat(5) @(posedge axi4Lite.s_axi_aclk);
+        axi4Lite.s_axi_aresetn = 1;
+
+        // generate 5 random transactions
+        baseSeq.numberOfAccesses = 5;
         baseSeq.start(env.agent.sequencer);
 
         phase.drop_objection(this);

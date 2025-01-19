@@ -1,0 +1,12 @@
+ToDo
+
+Master or slave operation
+
+Multi-master operation
+
+Software selectable acknowledge bit
+
+Calling address identification interrupt with
+automatic mode switching from master to slave
+
+START and STOP signal generation and detection

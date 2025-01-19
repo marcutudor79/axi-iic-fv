@@ -24,29 +24,36 @@ class axi4Lite_driver extends uvm_driver #(axi4Lite_transaction);
 
 	`uvm_component_utils(axi4Lite_driver)
 
-
+    // constructor for the driver
 	function new(string name="", uvm_component parent = null);
 		super.new(name, parent);
 	endfunction : new
 
-    // driver's purpose is to take items from the sequencer and send them to interface
+    // sequencer defines transaction -> driver takes the data and drives the signal
 	virtual task run_phase (uvm_phase phase);
+
+        // needs axi item and interface
 		axi4Lite_transaction axi4Lite_item;
 		virtual axi4Lite_intf axi4Lite_interface;
 
 		// create the object for interface
 		uvm_config_db#(virtual axi4Lite_intf)::get(null, "", "axi4Lite_interface", axi4Lite_interface);
 
+        // enter a forever loop to retrieve items from the sequencer
 		forever begin
 			seq_item_port.get_next_item(axi4Lite_item);
 
 			`uvm_info("axi4Lite_driver", $psprintf("Received new item: %s", axi4Lite_item.convert2string()), UVM_NONE)
+
+            // Synch the driving with the AXI clock
             @(posedge axi4Lite_interface.s_axi_aclk);
 
-            if(axi4Lite_item.writeEnable == 1) begin // write
+            // drive a WRITE if writeEnable is 1
+            if(axi4Lite_item.writeEnable == 1) begin
                 // Drive the address and data
                 axi4Lite_interface.s_axi_wdata  = axi4Lite_item.writeData;
                 axi4Lite_interface.s_axi_awaddr = axi4Lite_item.addr;
+
                 // Signal that the data and the address are valid on the bus
                 axi4Lite_interface.s_axi_awvalid = 1;
                 axi4Lite_interface.s_axi_wvalid  = 1;
@@ -69,9 +76,10 @@ class axi4Lite_driver extends uvm_driver #(axi4Lite_transaction);
                 axi4Lite_interface.s_axi_bready = 1;
                 @(posedge axi4Lite_interface.s_axi_aclk);
                 axi4Lite_interface.s_axi_bready = 0;
-
             end
-            else begin // read
+
+            // drive a READ if writeEnable is 0
+            else begin
                 // Drive the address and signal that it is valid
                 axi4Lite_interface.s_axi_araddr = axi4Lite_item.addr;
                 axi4Lite_interface.s_axi_arvalid = 1;
@@ -98,9 +106,9 @@ class axi4Lite_driver extends uvm_driver #(axi4Lite_transaction);
                 axi4Lite_interface.s_axi_rready  = 0;
             end
 
+            // Notify the sequencer that the item has been processed
 			seq_item_port.item_done();
 		end
 	endtask : run_phase
-
 
 endclass : axi4Lite_driver

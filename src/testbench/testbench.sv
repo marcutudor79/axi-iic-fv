@@ -59,6 +59,7 @@ axi_iic_0_wrapper dut_inst(.*);
 
 // ------- Interfaces instantiation ------- //
 axi4Lite_intf axi4Lite();
+iic_intf iicIntf();
 
 // ------- Clock generation ------- //
 initial begin
@@ -93,6 +94,7 @@ assign s_axi_rready     = axi4Lite.s_axi_rready;
 // ------- Run a test ------- //
 initial begin
     uvm_config_db#(virtual axi4Lite_intf)::set(null, "", "axi4Lite_interface", axi4Lite);
+    uvm_config_db#(virtual iic_intf)::set(null, "", "iic_interface", iicIntf);
 
     // run the sim for 1k clock cycles
     fork

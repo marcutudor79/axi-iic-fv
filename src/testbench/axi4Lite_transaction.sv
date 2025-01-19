@@ -1,21 +1,21 @@
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
+// Company:
+// Engineer:
+//
 // Create Date: 11/09/2024 05:45:35 PM
-// Design Name: 
+// Design Name:
 // Module Name: axi4Lite_transaction
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
+// Project Name:
+// Target Devices:
+// Tool Versions:
+// Description:
+//
+// Dependencies:
+//
 // Revision:
 // Revision 0.01 - File Created
 // Additional Comments:
-// 
+//
 //////////////////////////////////////////////////////////////////////////////////
 `include "uvm_macros.svh"
 import uvm_pkg::*;
@@ -29,6 +29,7 @@ class axi4Lite_transaction extends uvm_sequence_item;
 
 	`uvm_object_utils(axi4Lite_transaction)
 
+	// constructor for a transaction to be sent to the driver
 	function new(string name="axi4Lite_transaction");
 		super.new(name);
 
@@ -38,6 +39,7 @@ class axi4Lite_transaction extends uvm_sequence_item;
 		addr = 0;
 	endfunction : new
 
+	// function to convert transaction data to string
 	function string convert2string();
 		string outputString = "";
 
