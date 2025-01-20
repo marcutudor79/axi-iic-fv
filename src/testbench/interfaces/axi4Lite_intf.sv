@@ -1,35 +1,35 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
+// Company:
+// Engineer:
+//
 // Create Date: 11/09/2024 05:04:47 PM
-// Design Name: 
+// Design Name:
 // Module Name: axi4Lite_intf
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
+// Project Name:
+// Target Devices:
+// Tool Versions:
+// Description:
+//
+// Dependencies:
+//
 // Revision:
 // Revision 0.01 - File Created
 // Additional Comments:
-// 
+//
 //////////////////////////////////////////////////////////////////////////////////
 
 
 interface axi4Lite_intf ();
 	logic s_axi_aclk;
 	logic s_axi_aresetn;
-	logic [4:0] s_axi_awaddr;
+	logic [8:0] s_axi_awaddr; // modify to be in line with C_S_AXI_ADDR_WIDTH
 	logic s_axi_awvalid;
 	logic [31:0] s_axi_wdata;
 	logic [3:0] s_axi_wstrb;
 	logic s_axi_wvalid;
 	logic s_axi_bready;
-	logic [4:0] s_axi_araddr;
+	logic [8:0] s_axi_araddr; // modify to be in line with C_S_AXI_ADDR_WIDTH
 	logic s_axi_arvalid;
 	logic s_axi_rready;
 	logic s_axi_awready;

@@ -18,6 +18,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 `include "uvm_macros.svh"
+`include "../../rtl/axi_iic_registers.svh"
 import uvm_pkg::*;
 
 class axi4Lite_transaction extends uvm_sequence_item;
@@ -25,9 +26,14 @@ class axi4Lite_transaction extends uvm_sequence_item;
 		 logic [31:0] readData;
 	rand logic [31:0] writeData;
 	rand logic 		  writeEnable;
-	rand logic [4:0]  addr;
+	rand logic [8:0]  addr;
 
 	`uvm_object_utils(axi4Lite_transaction)
+
+	// add constraints to hit the registers inside IIC
+	constraint addr_values {
+		addr inside {`CR, `ADR, `GPO, `GIE, `IER/*`TX_FIFO, `TSUSTO, `THDSTA, `TSUDAT, `TBUF, `THIGH, `TLOW, `THDDAT*/};
+	}
 
 	// constructor for a transaction to be sent to the driver
 	function new(string name="axi4Lite_transaction");

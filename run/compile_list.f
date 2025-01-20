@@ -4,13 +4,13 @@
 # testbench
 ../src/testbench/interfaces/axi4Lite_intf.sv
 ../src/testbench/interfaces/iic_intf.sv
-../src/testbench/axi4Lite_transaction.sv
+../src/testbench/transactions/axi4Lite_transaction.sv
 ../src/testbench/agents/axi4Lite_monitor.sv
 ../src/testbench/agents/axi4Lite_driver.sv
 ../src/testbench/agents/axi4Lite_agent.sv
 ../src/testbench/scoreboard.sv
 ../src/testbench/sequences/axi4Lite_baseSequence.sv
-../src/testbench/sequences/axi4Lite_writeSequence.sv
+../src/testbench/sequences/axi4Lite_softResetSeq.sv
 ../src/testbench/environment.sv
 ../src/testbench/tests/base_test.sv
 ../src/testbench/testbench.sv

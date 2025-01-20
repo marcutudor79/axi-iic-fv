@@ -102,7 +102,7 @@ initial begin
             run_test("base_test");
         end
         begin
-            int clkLimit = 1000;
+            int clkLimit = 5000;
             repeat(clkLimit) @(posedge axi4Lite.s_axi_aclk);
             `uvm_fatal("SIM_END", $psprintf("Reached the simulation limit of %0d s_axi_aclk cycles", clkLimit))
         end

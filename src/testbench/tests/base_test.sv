@@ -44,12 +44,14 @@ class base_test extends uvm_test;
     virtual task run_phase(uvm_phase phase);
         virtual axi4Lite_intf axi4Lite;
         axi4Lite_baseSequence baseSeq;
+        axi4Lite_softResetSeq softResetSeq;
 
         // GET the interface signals
         uvm_config_db#(virtual axi4Lite_intf)::get(null, "", "axi4Lite_interface", axi4Lite);
 
         // GET the sequence
         baseSeq = axi4Lite_baseSequence::type_id::create("baseSeq");
+        softResetSeq = axi4Lite_softResetSeq::type_id::create("softResetSeq");
 
         phase.raise_objection(this);
 
@@ -58,9 +60,12 @@ class base_test extends uvm_test;
         repeat(5) @(posedge axi4Lite.s_axi_aclk);
         axi4Lite.s_axi_aresetn = 1;
 
-        // generate 5 random transactions
-        baseSeq.numberOfAccesses = 5;
+        // generate 100 random transactions
+        baseSeq.numberOfAccesses = 100;
         baseSeq.start(env.agent.sequencer);
+
+        // start the sequence
+        softResetSeq.start(env.agent.sequencer);
 
         phase.drop_objection(this);
     endtask
