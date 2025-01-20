@@ -1,0 +1,5 @@
+Plan:
+
+1. CRMDV on all R/W registers
+
+2. Garbage write on R/W registers then soft reset -> check reset value
